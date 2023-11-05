@@ -1,4 +1,7 @@
 import React, {useState} from 'react'
+import { AiOutlineCopy, AiOutlineClear } from 'react-icons/ai'
+import {TbSpaceOff} from 'react-icons/tb'
+
 
 export default function TextForm(props) {
     const [text, setText] = useState('')
@@ -53,10 +56,16 @@ export default function TextForm(props) {
         setText(event.target.value);
     }
 
+    const [textSize, setTextSize] = useState('25')
+    const handleTextSize = (e) => {
+        setTextSize(e.target.value)
+    }
+
     let word_length;
     var words = text.replace(/\t|\n/gi, " ").split(' ')
     word_length = words.filter(word => (word !== '')).length
-
+    
+    
 
 
   return (
@@ -64,21 +73,26 @@ export default function TextForm(props) {
         <div className='container'>
             <h2>{props.heading}</h2>
             <div className="mb-3">
-                <textarea className="form-control"  
+                <textarea className= 'form-control'  
                 onChange={handleOnChange} 
                 value={text} 
                 id="textArea" 
                 rows="8"
-                style={{backgroundColor: props.mode === 'light'? 'white':'#B9B7BD'}}
+                style={{backgroundColor: props.mode === 'light'? 'white':'#B9B7BD',fontSize: `${textSize}px`, resize: 'none', height: '200px', width: '80%'}}
                 ></textarea>    
             </div>
-            <div >
-                <button className="btn btn-primary btn-sm" type='button' onClick={handleUpClick}>Uppercase</button> 
-                <button className="btn btn-primary btn-sm ms-2" type='button' onClick={handleDownClick}>Lowercase</button> 
-                <button className="btn btn-primary btn-sm ms-2" type='button' onClick={handleClearClick}>Clear</button>
-                <button className="btn btn-primary btn-sm ms-2" type='button' onClick={handleCopyClick}>Copy</button>
-                <button className="btn btn-primary btn-sm ms-2" type='button' onClick={handleSpaceClick}>Remove Extra Space</button>
+            <div className="btn-group" role="group" aria-label="Basic outlined example">
+                <button className="btn btn-dark" type='button' onClick={handleUpClick}>aA</button> 
+                <button className="btn btn-dark" type='button' onClick={handleDownClick}>Aa</button> 
+                <button className="btn btn-dark" type='button' onClick={handleClearClick}><AiOutlineClear/></button>
+                <button className="btn btn-dark" type='button' onClick={handleCopyClick}> <AiOutlineCopy/> </button>
+                <button className="btn btn-dark" type='button' onClick={handleSpaceClick}><TbSpaceOff/></button>
             </div>
+            <div className='w-25'>
+                <label htmlFor="customRange2" className="form-label">Text Size</label>
+                <input type="range" className="form-range " min="20" defaultValue={'25'} max="72" step={0.5} onChange={handleTextSize} id="customRange2"></input>
+            </div>
+            
         </div>
         <div className='container my-3'>
             <h1>Your Text Summary</h1>

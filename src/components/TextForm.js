@@ -56,7 +56,7 @@ export default function TextForm(props) {
         setText(event.target.value);
     }
 
-    const [textSize, setTextSize] = useState('25')
+    const [textSize, setTextSize] = useState('15')
     const handleTextSize = (e) => {
         setTextSize(e.target.value)
     }
@@ -90,7 +90,7 @@ export default function TextForm(props) {
             </div>
             <div style={{width: '20rem' }}>
                 <label htmlFor="customRange2" className="form-label">Text Size</label>
-                <input type="range" className="form-range " min="20" defaultValue={'25'} max="72" step={0.5} onChange={handleTextSize} id="customRange2"></input>
+                <input type="range" className="form-range " min="10" defaultValue={'15'} max="72" onChange={handleTextSize} id="customRange2"></input>
             </div>
             
         </div>

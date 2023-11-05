@@ -88,7 +88,7 @@ export default function TextForm(props) {
                 <button className="btn btn-dark" type='button' onClick={handleCopyClick}> <AiOutlineCopy/> </button>
                 <button className="btn btn-dark" type='button' onClick={handleSpaceClick}><TbSpaceOff/></button>
             </div>
-            <div className='w-25'>
+            <div style={{width: '20rem' }}>
                 <label htmlFor="customRange2" className="form-label">Text Size</label>
                 <input type="range" className="form-range " min="20" defaultValue={'25'} max="72" step={0.5} onChange={handleTextSize} id="customRange2"></input>
             </div>

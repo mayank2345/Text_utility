@@ -97,7 +97,7 @@ export default function TextForm(props) {
         <div className='container my-3'>
             <h1>Your Text Summary</h1>
             <p>{word_length} words and {text.length} characters.</p>
-            <p>{0.008 * word_length} minutes read</p>
+            <p>{(0.008 * word_length).toFixed(3)} minutes read</p>
             <h2>Preview</h2>
             <p>{text.length>0?text: 'Enter something to preview here.'}</p>
         </div>
